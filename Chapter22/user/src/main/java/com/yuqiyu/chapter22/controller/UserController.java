@@ -24,6 +24,7 @@ public class UserController {
         //将name属性传入到user_index.jsp页面中展示
         request.setAttribute("name",user.getName());
         //跳转user_index.jsp页面
+        System.out.println("index--------");
         return "user_index";
     }
 }
