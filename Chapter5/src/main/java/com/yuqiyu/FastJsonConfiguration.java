@@ -35,8 +35,11 @@ public class FastJsonConfiguration extends WebMvcConfigurerAdapter
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
         //修改配置返回内容的过滤
         fastJsonConfig.setSerializerFeatures(
+                //消除对同一对象循环引用的问题，默认为false(如果不配置有可能会进入死循环)
                 SerializerFeature.DisableCircularReferenceDetect,
+                //是否输出值为Null的字段，默认为false
                 SerializerFeature.WriteMapNullValue,
+                //字符类型字段如果为null,输出为""，而非null
                 SerializerFeature.WriteNullStringAsEmpty
         );
         fastConverter.setFastJsonConfig(fastJsonConfig);

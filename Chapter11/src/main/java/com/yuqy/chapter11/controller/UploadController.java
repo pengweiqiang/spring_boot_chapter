@@ -60,6 +60,7 @@ public class UploadController {
         try {
             //上传目录地址
             String uploadDir = request.getSession().getServletContext().getRealPath("/") +"upload/";
+            System.out.println(uploadDir);
             //如果目录不存在，自动创建文件夹
             File dir = new File(uploadDir);
             if(!dir.exists())

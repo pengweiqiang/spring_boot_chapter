@@ -31,6 +31,16 @@ public class UserController {
      */
     @RequestMapping(value ="/list" ,method = RequestMethod.GET)
     public List<UserEntity> list(){
+        int i = 100;
+        while(i<0){
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            i--;
+            userJPA.findAll();
+        }
         return userJPA.findAll();
     }
 

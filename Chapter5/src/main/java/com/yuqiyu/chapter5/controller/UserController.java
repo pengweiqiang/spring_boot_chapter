@@ -29,7 +29,7 @@ public class UserController {
      * 查询用户列表方法
      * @return
      */
-    @RequestMapping(value ="/list" ,method = RequestMethod.GET)
+    @RequestMapping(value ="/list" ,method = RequestMethod.GET,produces = "application/json;charset=utf-8")
     public List<UserEntity> list(){
         return userJPA.findAll();
     }
@@ -39,9 +39,10 @@ public class UserController {
      * @param entity
      * @return
      */
-    @RequestMapping(value = "/save",method = RequestMethod.GET)
+    @RequestMapping(value = "/save",method = RequestMethod.GET,produces = "application/json;charset=utf-8")
     public UserEntity save(UserEntity entity)
     {
+        System.out.println("用户参数："+entity.toString());
         return userJPA.save(entity);
     }
 
